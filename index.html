@@ -51,16 +51,20 @@
             grid-template-rows: 400px;
             place-items: center;
         }
+        .uploadCat{
+            margin-bottom: 10px;
+        }
         form{
             display: flex;
             flex-direction: column;
-            height: 350px;
+            height: fit-content;
             align-items: center;
+            
         }
-        form img {
-            position:absolute;
+        form button {
+            margin-bottom: 10px
         }
-
+        
         .image-upload {
             border: 1px solid #999;
             border-radius: 3px;
@@ -69,11 +73,10 @@
             cursor: pointer;
             font-weight: 700;
             font-size: 10pt;
-            margin: 10px;
             display: block;
-            width: 300px;
-            height: 300px;
-            position: absolute;
+            width: 350px;
+            height: 25px;
+            margin-bottom: 10px;
             
           }
           .image-upload:hover::before {
@@ -83,6 +86,7 @@
           .image-upload:active::before {
             background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
           }
+
     </style>
 </head>
 <body>
@@ -108,8 +112,8 @@
             <h2>Sube la foto de tu gato</h2>
         </div>
         <form id="uploadingForm">
-            <img src="./images/cam.webp" id="show-prev" alt="">
             <input class="image-upload" type="file" id="file" name="file">
+            <img src="./images/cam.webp" id="show-prev" alt="">
             <button type="button" onclick="uploadCatPhoto()">Subir</button>
         </form>
     </section>
