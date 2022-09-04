@@ -1,5 +1,5 @@
 const api = axios.create({
-    baseURL: 'https://api.thecatapi.com/v1/',
+    baseURL: 'https://api.thecatapi.com/v1',
 })
 api.defaults.headers.common['X-API-KEY'] ='live_ddqyR9Mn5m1fISVdZemsJIL6MlO4kAOrDUC3mREKbPltl5rkrQ0FnvvKEzfLgQ6D'
 
@@ -9,7 +9,7 @@ const API_URL_FAVORITES = 'https://api.thecatapi.com/v1/favourites?';
 
 const API_URL_UPLOAD = 'https://api.thecatapi.com/v1/images/upload?';
 
-const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/{id}?`;
+const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}?`;
 
 const DOG_API = 'https://api.thedogapi.com/v1/images/search';
 
@@ -69,7 +69,7 @@ async function loadFavoritesCats() {
             const btnText = document.createTextNode('Sacar el gato de Favoritos');
             btn.appendChild(btnText);
             btn.onclick = () => deleteFavorite(cat.id);
-            // console.log(cat.id)
+            console.log(cat.id)
             img.src = cat.image.url;
             article.appendChild(img);
             article.appendChild(btn);
@@ -113,6 +113,7 @@ async function deleteFavorite(id) {
         }
     });
     const data = await res.json(); 
+    console.log(data);
     if (res.status!== 200 ) {
         catError.innerHTML = 'Hubo un error';
     } else {
